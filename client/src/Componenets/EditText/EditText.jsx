@@ -6,7 +6,7 @@ export default class EditText extends Component {
     constructor(props){
         super(props);
         this.state = {
-            _id:'',
+            id:'',
             letters:'',
             numbs:'',
             upletters:'',
@@ -34,10 +34,10 @@ export default class EditText extends Component {
             descriptiveText:this.state.descriptiveText
         }
            
-        if(this.state._id !== ''){
+        if(this.state.id !== ''){
             axios({
                 method:'patch',
-                url:`http://localhost:5000/api/edittext/updatetext/${this.state._id}`,
+                url:`/api/edittext/updatetext/${this.state.id}`,
                 data:frmData
             })
             .then(()=>{
@@ -52,7 +52,7 @@ export default class EditText extends Component {
             
             axios({
                 method:'post',
-                url:`http://localhost:5000/api/edittext/add`,
+                url:`/api/edittext/add`,
                 data:frmData
             })
             .then(()=>{
@@ -70,12 +70,12 @@ export default class EditText extends Component {
         setTimeout((()=>{
             axios({
                 method:'get',
-                url:`http://localhost:5000/api/edittext/viewtext`
+                url:`/api/edittext/viewtext`
             })
             .then(res =>{
                 if(res.data[0]){
                     this.setState({
-                        _id:res.data[0]._id,
+                        id:res.data[0]._id,
                         letters:res.data[0].letters,
                         upletters:res.data[0].upletters,
                         lowletters:res.data[0].lowletters,
@@ -93,6 +93,11 @@ export default class EditText extends Component {
   render() {
 
     return (
+
+      
+      <div>
+      <section className="content-header">
+        <div className="container-fluid">
 
         <div className="row">
             <div className="col-md-4">
@@ -153,7 +158,7 @@ export default class EditText extends Component {
 
 
           <div className="card-footer">
-            <button type="submit" className="btn btn-primary">Submit</button>
+          <button className="btn btn-lg btn-danger btn-block">Click Here to Update above Letters</button>
           </div>
         </form>
       </div>
@@ -166,7 +171,7 @@ export default class EditText extends Component {
       <div className="col-md-8">
 
 
-<div className="card card-primary">
+<div className="card card-success">
       
 <div className="card-header">
   <h3 className="card-title">Quick Preview</h3>
@@ -197,7 +202,11 @@ export default class EditText extends Component {
 
 </div>
 
+</div>
 
+      </div>
+
+      </section>
           </div>
 
     );

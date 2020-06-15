@@ -28,9 +28,10 @@ router.post('/add',(req,res)=>{
 
 
 router.patch('/updatetext/:_id',async (req,res)=>{
-
+   
     try{
-        console.log('Request Params of Id : ', req.params._id);
+        console.log('Request Params of Id edit text : ', req.params._id);
+        
         let newData = await EditText.findOne({_id:req.params._id})
        
         if(!newData){
@@ -65,6 +66,30 @@ router.get('/viewtext/',async (req,res)=>{
         res.status(500).json({'err':'Server Error'});
     }
 
+
+});
+
+
+
+router.patch('/updatefont/:_id',async (req,res)=>{
+    
+    try{
+        console.log('Request Params of Id update font : ', req.params._id);
+        console.log('Request Body edit text : ', req.body);
+        let newData = await EditText.findOne({_id:req.params._id})
+       
+        if(!newData){
+            res.status(404).json({'message':'Invalid Id'});    
+        }else{
+            newData.size = req.body.size
+            await newData.save();
+            res.status(200).json(newData);
+        }
+
+    }catch(err){
+        res.status(500).json({'err':'Server Error1'});
+        console.log(err)
+    }
 
 })
 module.exports = router;

@@ -13,11 +13,12 @@ const EditTextSchema = new Schema({
     upletters:{
         type:String,
         required:true,
-        lowercase:true
+        uppercase:true
     },
     lowletters:{
         type:String,
-        required:true
+        required:true,
+        lowercase:true
     },
     sinletters:{
         type:String,
@@ -26,6 +27,10 @@ const EditTextSchema = new Schema({
     descriptiveText:{
         type:String,
         required:true
+    },
+    size:{
+        type:Number,
+        default:50
     }
 })
 
