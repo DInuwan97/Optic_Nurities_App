@@ -27,6 +27,8 @@ mongoose
 app.use("/api/users", Users);
 app.use("/api/edittext",EditText);
 
+
+console.log('Node Environment : ',process.env.NODE_ENV);
 //Serve static assets if you are in production
 if(process.env.NODE_ENV === 'production'){
   //set static folder

@@ -6,6 +6,7 @@ import Login from './Componenets/LoginRegistration/Login';
 import EditText from './Componenets/EditText/EditText';
 import Home from './Componenets/Home/Home';
 import Control from './Componenets/FontController/Control';
+import DataControl from './Componenets/FontController/DataControl';
 function App() {
   return (
     <Router>
@@ -18,6 +19,7 @@ function App() {
             <Route path="/login" component={Login} />
             <Route path="/edittext" component={EditText}/>
             <Route path="/control" component={Control}/>
+            <Route path="/datacontrol" component={DataControl}/>
             <Route exact path="/" component={Home}/>
             </Switch>
       </div>

@@ -87,7 +87,7 @@ export default class Control extends Component {
           <div class="card-body"> 
           <div className="form-group">
               <label for="size">Font Size</label>
-              <input type="text" className="form-control" name="size" id="size" placeholder="Enter Font Size"
+              <input type="number" className="form-control" name="size" id="size" placeholder="Enter Font Size"
                onChange={this.onChangeHandler}
                value={this.state.size}/>
             </div>
