@@ -88,6 +88,9 @@ const userLink = (
       <li className="nav-item">
       <Link to='/control' className="nav-link" href="#">Change Font</Link>
       </li>
+      <li className="nav-item">
+      <Link to='/datacontrol' className="nav-link" href="#">Add Daily Summary</Link>
+      </li>
       <li className="nav-item dropdown">
         <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Dropdown link

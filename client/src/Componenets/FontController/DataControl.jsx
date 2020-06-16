@@ -1,11 +1,45 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import swal from 'sweetalert';
 
 export default class DataControl extends Component {
+
+  constructor(props){
+    super(props);
+    this.state ={
+      addedDate:'',
+      addedTime:'',
+      size:''
+    }
+  }
 
     onChangeHandler = e =>{
         this.setState({
           [e.target.name] : e.target.value
         })
+    }
+
+    onSubmitHandler = e =>{
+
+
+      let frmData = {
+        addedDate:this.state.addedDate,
+        addedTime:this.state.addedTime,
+        size:this.state.size
+      }
+      axios({
+        method:'post',
+        url:'/api/dailysummary/adddailysummary',
+        data:frmData
+      })
+      .then(()=>{
+        swal({
+            icon:'success',
+            button:true,
+            title:'Done',
+            text:'Added Successfully'
+        })
+      })
     }
 
 
@@ -25,7 +59,7 @@ export default class DataControl extends Component {
         <br/>
         <br/>
 
-<form>
+<form onSubmit={this.onSubmitHandler}>
         <div class="card card-primary">
       <div class="card-header">
         <h3 class="card-title">Enter Todays Data</h3>
@@ -46,16 +80,16 @@ export default class DataControl extends Component {
         </div>
 
         <div className="form-group">
-          <label for="dateread">Date</label>
-          <input type="date" className="form-control" name="dateread" id="dateread" placeholder="Enter Date"
+          <label for="addedDate">Date</label>
+          <input type="date" className="form-control" name="addedDate" id="addedDate" placeholder="Enter Date"
            onChange={this.onChangeHandler}
            />
         </div>
 
         
         <div className="form-group">
-          <label for="timeread">Time</label>
-          <input type="time" className="form-control" name="timeread" id="timeread" placeholder="Enter Time"
+          <label for="addedTime">Time</label>
+          <input type="time" className="form-control" name="addedTime" id="addedTime" placeholder="Enter Time"
            onChange={this.onChangeHandler}
            />
         </div>

@@ -7,6 +7,7 @@ const path = require('path');
 //Import routes
 const Users = require("./Routes/api/users");
 const EditText = require("./Routes/api/edittext");
+const DailySummary = require("./Routes/api/dailysummary");
 //middlewear
 const app = express();
 
@@ -26,7 +27,7 @@ mongoose
   
 app.use("/api/users", Users);
 app.use("/api/edittext",EditText);
-
+app.use("/api/dailysummary",DailySummary);
 
 console.log('Node Environment : ',process.env.NODE_ENV);
 //Serve static assets if you are in production
