@@ -7,6 +7,7 @@ import EditText from './Componenets/EditText/EditText';
 import Home from './Componenets/Home/Home';
 import Control from './Componenets/FontController/Control';
 import DataControl from './Componenets/FontController/DataControl';
+import Stat from './Componenets/Charts/BarChart';
 function App() {
   return (
     <Router>
@@ -21,6 +22,7 @@ function App() {
             <Route path="/control" component={Control}/>
             <Route path="/datacontrol" component={DataControl}/>
             <Route exact path="/" component={Home}/>
+            <Route path="/stats" component={Stat}/>
             </Switch>
       </div>
     </Router>

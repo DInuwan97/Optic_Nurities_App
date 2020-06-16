@@ -22,4 +22,17 @@ router.post('/adddailysummary/',(req,res)=>{
     });
 });
 
+
+router.get('/view/',async (req,res)=>{
+
+    try{
+        let dailySummary = await DailySummary.find()
+
+        res.json(dailySummary);
+    }catch(err){
+        res.status(500).json({'error':'Server Error'});
+    }
+
+});
+
 module.exports = router;
